@@ -1,0 +1,1205 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+/* ---------------------- Theme colors ---------------------- */
+/* Surprise me */
+/* ----------------------- Fonts, font sizes, font colors ---------------------- */
+/* White text on dark backgrounds */
+/* Dark text on light backgrounds */
+/* ----------------------- Base padding ---------------------- */
+/* ----------------------- Base element styles ----------------------- */
+/**
+ * Use with every animation and transition so we can have a
+ * global animation speed toggler (i.e., for visual UI testing)
+ */
+/*
+ * Easing functions
+ */
+.btn-link, .btn {
+  height: 4.8rem;
+  width: 15rem;
+  padding: 0.5em 0.8em;
+  outline: none;
+  border: 1px solid #00ff91;
+  background-color: #00ff91;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  border-radius: .2em;
+  box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
+  font-size: 1.25em;
+  line-height: 2.4rem;
+  text-align: center;
+  display: block; }
+
+.btn-link--holo, .btn--holo {
+  height: 4.8rem;
+  width: 15rem;
+  padding: 0.5em 0.8em;
+  outline: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25em;
+  line-height: 2.4rem;
+  text-align: center;
+  display: block; }
+
+/**
+ * A link styled as a button
+ */
+.btn-link {
+  text-decoration: none; }
+
+.btn-link--holo {
+  text-decoration: none; }
+
+.btn-fab {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: #00ff91;
+  box-shadow: 0 0.5em 0.25em rgba(0, 0, 0, 0.5);
+  font-size: 1.25em; }
+
+.toolbar, .navbar {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 64px;
+  background-color: #4dffb2;
+  max-width: 100%;
+  width: 100%;
+  font-size: 2.0rem;
+  position: relative; }
+
+/**
+ * Default helper styles when displaying an image via
+ * the background-image property
+ */
+/* ----------------------------------------------------------------------------------------------------
+ * Breakpoint maps -- referecened by mixins that
+ * dynamically create media queries
+ * ----------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------
+ * Maps for use in our font-size mixin
+ * Keys are the breakpoints, font-sizes (occassionally with line heights) are the corresponding values
+ * ---------------------------------------------------------------------------------------------------- */
+/**
+ * @param $fs-map -- key-value pair with size variables or literals as keys,
+ * and a value consisting of either a font-size, or a (font-size, line-height) list
+ */
+/* Utility function for mixin font-size */
+/* ---------------------------------------------------------------------------------------------------- */
+/**
+ * Attribute API for declarative flexbox styling
+ */
+[layout] {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; }
+
+[layout="horizontal"],
+[layout="row"] {
+  flex-direction: row; }
+
+[layout="vertical"],
+[layout="column"] {
+  flex-direction: column; }
+
+[layout-align="space-around"] {
+  justify-content: space-around; }
+
+[layout-align="space-between"] {
+  justify-content: space-between; }
+
+[layout-align="center"] {
+  justify-content: center; }
+
+[layout-align="start"] {
+  justify-content: flex-start; }
+
+[layout-align="end"] {
+  justify-content: flex-end; }
+
+.toolbar .toolbar__items {
+  margin: 0 0.8em;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 64px;
+  max-height: 64px;
+  width: 100%; }
+
+.hero {
+  height: 536px;
+  max-height: 536px;
+  background-color: #779aa6;
+  border-bottom: 1.5px solid #00a7f5;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7); }
+
+.hero .hero__backdrop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), transparent); }
+
+.hero .hero__description {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  width: 27.5rem; }
+
+.hero .hero__svg-container {
+  width: 268px;
+  height: 268px;
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  margin-top: -134px; }
+
+.menu {
+  flex: 1;
+  min-width: 100%;
+  max-width: 100%; }
+
+@media screen and (min-width: 1200px) {
+  .menu {
+    padding-bottom: 6em; }
+  .menu.menu--genres {
+    min-width: 58%;
+    max-width: 58%;
+    width: 58%; }
+  .menu.menu--recent-sessions {
+    min-width: 42%;
+    max-width: 42%;
+    width: 42%; } }
+
+.navbar {
+  position: fixed;
+  z-index: 100; }
+
+.navbar .navbar__logo {
+  font-size: 1.5em;
+  flex: 1; }
+
+.navbar .navbar__logo a {
+  color: #00a7f5; }
+
+.navbar .navbar__links {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.navbar a {
+  color: white;
+  text-decoration: none; }
+
+.sidenav {
+  height: 100%;
+  width: 324px;
+  max-width: 324px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  text-align: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* Initialize to negative x position */ }
+
+.sidenav .list-heading {
+  cursor: pointer; }
+
+.sidenav header {
+  height: 64px;
+  width: 100%; }
+
+.sidenav li {
+  left: 0;
+  list-style-type: none;
+  width: 100%;
+  transition: transform 0.75s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.75s cubic-bezier(0.215, 0.61, 0.355, 1), z-index 0.75s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.sidenav li.heading {
+  font-size: 1.5em; }
+
+.sidenav li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.8em;
+  text-decoration: none;
+  cursor: pointer; }
+
+.sidenav ul {
+  position: relative;
+  padding-left: 0;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  border: none;
+  border-top: 1.2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1.2px solid rgba(0, 0, 0, 0.2); }
+
+.sidenav ul.collapse {
+  /**
+       * Roll all child <li's> except for the first
+       */ }
+
+.sidenav ul.collapse li {
+  position: absolute;
+  z-index: -1;
+  transform: translate(0, -100%);
+  opacity: 0; }
+
+.sidenav ul.expand li {
+  position: initial;
+  z-index: 1;
+  transform: translate(0, 0);
+  opacity: 1; }
+
+.sidenav.collapse {
+  transform: translate3d(-100%, 0, 0); }
+
+.sidenav.activated {
+  animation: SlideInFromLeft 0.7s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-fill-mode: forwards; }
+
+.sidenav.deactivated {
+  animation: SlideOutLeft 0.7s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-fill-mode: forwards; }
+
+.page {
+  padding-top: 64px;
+  min-height: 100vh; }
+
+.page .page__title-container {
+  margin-bottom: 3.5em; }
+
+.page .page__title {
+  margin-top: 1.15em;
+  color: #00ff91; }
+
+.page .page__hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.23), transparent);
+  margin: 0 auto;
+  width: 75%; }
+
+.page .page__fine-print {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  color: #b8b8b8;
+  margin: 0 1.5em;
+  width: 40%;
+  text-align: left; }
+
+.page-section {
+  width: 100%;
+  display: block;
+  position: relative;
+  text-align: center; }
+
+.page-section > div {
+  overflow: hidden; }
+
+.page-section__hero {
+  min-height: 536px;
+  max-width: 100%; }
+
+.page-section__main-content {
+  height: auto; }
+
+.page-section__footnote {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 1em;
+  right: 1em; }
+
+/*
+ * An arbitrary block of content
+ */
+.content {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+  z-index: 5; }
+
+.project {
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-50%); }
+
+.project .project__image {
+  position: relative;
+  width: 24.2rem;
+  height: 24.2rem;
+  margin: 0 auto;
+  z-index: 5; }
+
+.project .project__image,
+.project .project__image img,
+.project .project__image:before,
+.project .project__image:after {
+  border-radius: 100%; }
+
+.project .project__image img {
+  z-index: 4;
+  display: block;
+  position: relative; }
+
+.project .project__image:before,
+.project .project__image:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.project .project__image:before {
+  background-color: rgba(242, 236, 189, 0.8);
+  top: -5px;
+  left: -5px;
+  z-index: 2; }
+
+.project .project__image:after {
+  background-color: rgba(121, 140, 29, 0.3);
+  bottom: -6px;
+  right: 6px;
+  z-index: 3; }
+
+.project .background-floaters {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  z-index: 1;
+  transform: translate3d(-50%, -100%, 0); }
+
+.project .background-floater {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(242, 236, 189, 0.25);
+  /*
+         * Make random offsets for each of our floaters around the image
+         */ }
+
+.project .background-floater.sizeS {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(242, 236, 189, 0.1); }
+
+.project .background-floater.sizeL {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(242, 236, 189, 0.4); }
+
+.project .background-floater.sizeXL {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(242, 236, 189, 0.6); }
+
+.project .background-floater:nth-child(1) {
+  top: -18.2rem;
+  left: -22.06789rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(2) {
+  top: -7.2rem;
+  left: 11.21591rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(3) {
+  top: 0.8rem;
+  left: 6.5154rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(4) {
+  top: 7.8rem;
+  left: -23.84214rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(5) {
+  top: -2.2rem;
+  left: 8.74984rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(6) {
+  top: 7.8rem;
+  left: -23.58016rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(7) {
+  top: -16.2rem;
+  left: -20.18111rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(8) {
+  top: -11.2rem;
+  left: -20.53458rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(9) {
+  top: -8.2rem;
+  left: -16.06262rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(10) {
+  top: -1.2rem;
+  left: 0.27604rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(11) {
+  top: 0.8rem;
+  left: -20.53103rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(12) {
+  top: -13.2rem;
+  left: -12.40709rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(13) {
+  top: -15.2rem;
+  left: -13.33057rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(14) {
+  top: 7.8rem;
+  left: -21.96171rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(15) {
+  top: -6.2rem;
+  left: -12.69409rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(16) {
+  top: 4.8rem;
+  left: -13.2795rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(17) {
+  top: -2.2rem;
+  left: 6.44534rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(18) {
+  top: -10.2rem;
+  left: -17.77547rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(19) {
+  top: -9.2rem;
+  left: -18.68678rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(20) {
+  top: -0.2rem;
+  left: 6.40274rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(21) {
+  top: 0.8rem;
+  left: -23.6985rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .background-floater:nth-child(22) {
+  top: -23.2rem;
+  left: 0.30956rem;
+  /* TODO: Get the result after the last "+" to return 1 or -1 */ }
+
+.project .btn-container {
+  position: relative; }
+
+.project .project__btn {
+  margin: 0 auto;
+  position: absolute;
+  transform: translateX(-50%);
+  top: 0;
+  left: 50%;
+  line-height: 2em; }
+
+.project .btn__area {
+  width: 33.333333%;
+  height: 100%;
+  border: 0.2em solid white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+.project .btn__area.btn__area--mid {
+  left: 33.33333%;
+  border-width: 1px 0; }
+
+.project .btn__area.btn__area--left {
+  border-width: 1px 0 1px 1px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+.project .btn__area.btn__area--right {
+  left: auto;
+  right: 0;
+  border-width: 1px 1px 1px 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.project .project__title {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: #f2ecbf; }
+
+.project .subtitle {
+  font-size: 1.6rem; }
+
+@media screen and (min-width: 740px) {
+  .project .project__title {
+    font-size: 5.0rem; }
+  .project .subtitle {
+    font-size: 1.6rem; } }
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.panel .panel__item {
+  height: 20em;
+  margin: 1em;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.panel .panel__item > div {
+  margin: 0.75em auto; }
+
+.panel .panel__content {
+  max-width: 100%;
+  max-height: 100%;
+  flex: 1; }
+
+@media screen and (max-width: 740px) {
+  .panel {
+    flex-direction: column;
+    flex-wrap: wrap; } }
+
+.footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  min-height: 64px;
+  text-align: center;
+  transform: translateY(100%); }
+
+.footer .footer__items {
+  display: flex;
+  width: 100%; }
+
+.footer .footer__item {
+  flex: 1; }
+
+.icon-fab {
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  height: 44px;
+  background-color: #00ff91;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%; }
+
+.heading {
+  font-size: 3.5rem;
+  color: #212121; }
+
+.heading__title {
+  text-align: left;
+  color: #212121;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.subtitle {
+  display: block;
+  font-size: 1.2rem;
+  margin: 0;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7); }
+
+@media screen and (max-width: 740px) {
+  .subtitle {
+    font-size: 1.6rem; } }
+
+.table {
+  line-height: 1.5;
+  border: none;
+  text-align: left;
+  width: 100%; }
+
+.table thead tr {
+  border: none;
+  border-bottom: 2px solid #b3b1b9; }
+
+.table th {
+  text-align: left;
+  font-weight: 600;
+  color: #212121;
+  padding: 1rem;
+  white-space: nowrap;
+  border: none; }
+
+.table tr td {
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #d8d9d9;
+  border-top: 1px solid #d8d9d9;
+  padding: 1.2rem 1rem;
+  vertical-align: middle; }
+
+.pre {
+  width: 500px;
+  padding: 1.5em 2.25em;
+  font-size: 0.9em;
+  line-height: 1rem;
+  background-color: rgba(26, 182, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  text-transform: none;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  /* commented-out in favor of fluid expansion
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  */
+  overflow: auto;
+  transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.pre:hover {
+  position: relative;
+  width: 750px;
+  z-index: 10; }
+
+.pre span.p {
+  display: block; }
+
+.db-widget {
+  width: 420px;
+  min-width: 420px;
+  height: 336px;
+  border-radius: 7.5px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1em 1.5em;
+  overflow: none;
+  background-color: white;
+  color: #212121;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+.db-widget .db-widget__content,
+.db-widget .db-widget__header,
+.db-widget .db-widget__footer {
+  display: flex; }
+
+.db-widget .db-widget__header,
+.db-widget .db-widget__content {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.db-widget .db-widget__header {
+  border-top-left-radius: 7.5px;
+  border-top-right-radius: 7.5px;
+  height: 14%;
+  min-height: 14%;
+  color: white;
+  background-color: #00a7f5; }
+
+.db-widget .db-widget__content {
+  padding: 1.5em 2.25em;
+  flex-grow: 1; }
+
+.db-widget .db-widget__footer {
+  flex-direction: row;
+  justify-content: flex-end; }
+
+.db-widget .db-widget__footer .footer__item {
+  flex-grow: 1; }
+
+.db-widget .db-widget__primary-stat {
+  font-size: 3.5rem; }
+
+.db-widget .subtitle {
+  color: #737373; }
+
+.btn {
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.btn:hover {
+  transform: scale(1.08); }
+
+.form .form__component {
+  width: 100%; }
+
+.form .form__group {
+  margin-bottom: 0.8em; }
+
+.input .input__container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.input .input__container--slider {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.input .input__container--slider label {
+  flex: 1; }
+
+.input .input__container--slider input {
+  flex: 3; }
+
+.input .input__container--slider output {
+  flex: 1; }
+
+.label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 0.32em;
+  font-weight: 700; }
+
+.background-floater {
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  background-color: rgba(242, 236, 29, 0.1);
+  z-index: 3; }
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  font-size: 62.5%;
+  /* sets the base font to 10px for better math */
+  line-height: 1.4; }
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
+
+/*
+ * Catch-all for preventing accidental overflow of these elements
+ */
+img, object, embed, video {
+  max-width: 100%; }
+
+/**
+ * Min-width and min-height for tap-targets
+ */
+nav, a, button {
+  min-width: 44px;
+  min-height: 44px; }
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0; }
+
+html {
+  color: #212121; }
+
+body {
+  font-size: 1.6rem;
+  /* sets the default sizing to make sure nothing is actually 10px */
+  background-color: #2e2e30;
+  font-family: "Open Sans", Helvetica, Helvetica Neue, Arial, sans-serif; }
+
+p, ul, ol {
+  font-size: 0.9375em;
+  line-height: 1.3;
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */ }
+
+@media screen and (min-width: 480px) {
+  p, ul, ol {
+    font-size: 1em; } }
+
+@media screen and (min-width: 740px) {
+  p, ul, ol {
+    font-size: 1.0625em;
+    line-height: 1.4; } }
+
+@media screen and (min-width: 900px) {
+  p, ul, ol {
+    font-size: 1.125em; } }
+
+@media screen and (min-width: 1024px) {
+  p, ul, ol {
+    font-size: 1.1875em;
+    line-height: 1.45; } }
+
+@media screen and (min-width: 1440px) {
+  p, ul, ol {
+    font-size: 1.25em; } }
+
+h1 {
+  font-size: 1.75em;
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */
+  /* If $font-size is a key that exists in
+             * $breakpoint-sizes, use the value to
+             * create a media query using the breakpoint */
+  /* If the $font-size is NOT in the $breakpoint-sizes map,
+             * we assume it's a literal value. This way, each map can mix and match
+             * keys and values as needed
+             */ }
+
+@media screen and (min-width: 480px) {
+  h1 {
+    font-size: 1.9375em; } }
+
+@media screen and (min-width: 740px) {
+  h1 {
+    font-size: 2.0625em; } }
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2.25em; } }
+
+h1, h2, h3, h4 {
+  font-weight: 700; }
+
+/**
+ * The mother-of-all top level wrappers.
+ */
+.master-wrapper {
+  position: relative;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 100vw;
+  min-height: 100%; }
+
+/*
+ * Top-level wrapper styles for a column or container of...things
+ */
+.container,
+.column {
+  margin: 0 auto;
+  position: relative;
+  width: 85%;
+  max-width: 1265px;
+  text-align: left; }
+
+/*
+ * A link styled as a button
+ */
+/*
+ * Sizing to juxtapose a small copy section against a larger body copy section
+ * Note that the font sizes add to 2rem, and the and line heights sume to 48px,
+ * which is the same line height for 32px type when set to 1.5
+ */
+.copy__body {
+  font-size: 1.125em;
+  line-height: 1.5;
+  /* 27px */ }
+
+.copy__small {
+  font-size: 0.875em;
+  line-height: 1.5;
+  /* 21 px */ }
+
+.heading__subtitle {
+  margin-top: -1em; }
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+/* ==========================================================================
+   Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media screen and (min-width: 1480px) {
+  html {
+    font-size: 100%; } }
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+                                      http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a,
+  a:visited {
+    text-decoration: underline; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: ""; }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group; }
+  tr,
+  img {
+    page-break-inside: avoid; }
+  img {
+    max-width: 100% !important; }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+  h2,
+  h3 {
+    page-break-after: avoid; } }
+
+body {
+  color: white;
+  overflow-x: hidden;
+  transition: background-color 0.4s linear; }
+
+body.project-1 {
+  background-color: #4d5126; }
+
+body.project-2 {
+  background-color: #a8b183; }
+
+body.project-3 {
+  background-color: #988685; }
+
+/* Import styles for view sections/pages here */

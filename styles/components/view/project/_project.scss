@@ -1,0 +1,180 @@
+$project__image__width: 24.2;
+$project__image__height: 24.2;
+
+$background-floater__size--S: .5rem;
+$background-floater__size--M: 1.0rem;
+$background-floater__size--L: 1.5rem;
+$background-floater__size--XL: 3.0rem;
+$background-floater__background-color--S: rgba(242, 236, 189, 0.1);
+$background-floater__background-color--M: rgba(242, 236, 189, 0.25);
+$background-floater__background-color--L: rgba(242, 236, 189, 0.40);
+$background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
+
+
+
+.project {
+    
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(-50%);
+            
+    .project__image {                                        
+        position: relative;
+        width: #{$project__image__width}rem;
+        height: #{$project__image__height}rem;
+        margin: 0 auto;
+        z-index: 5;
+        
+        &,
+        & img,
+        &:before,
+        &:after, {
+           border-radius: 100%; 
+        }
+        
+        & img {
+            z-index: 4;
+            display: block;
+            position: relative;
+        }
+                
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;            
+        }
+        
+        &:before {
+            background-color: rgba(242, 236, 189, 0.8);
+            top: -5px;
+            left: -5px;
+            z-index: 2;
+        }
+        &:after {
+            background-color: rgba(121, 140, 29, 0.3);
+            bottom: -6px;
+            right: 6px;
+            z-index: 3;
+        }                
+    }
+    
+    .background-floaters {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        z-index: 1;
+        transform: translate3d(-50%, -100%, 0);
+    }
+    
+    .background-floater {
+        
+        position: absolute;
+        width: $background-floater__size--M;
+        height: $background-floater__size--M;
+        background-color: $background-floater__background-color--M;
+        
+        &.sizeS {
+            width: $background-floater__size--S;
+            height: $background-floater__size--S;
+            background-color: $background-floater__background-color--S;
+        }
+        &.sizeL {
+            width: $background-floater__size--L;
+            height: $background-floater__size--L;
+            background-color: $background-floater__background-color--L;
+        }
+        &.sizeXL {
+            width: $background-floater__size--XL;
+            height: $background-floater__size--XL;
+            background-color: $background-floater__background-color--XL;
+        }
+        
+        /*
+         * Make random offsets for each of our floaters around the image
+         */
+        @for $i from 1 through 22 {
+            &:nth-child(#{$i}) {
+                top: #{-1 * $project__image__width + random(ceil($project__image__width * 1.3))}rem;
+          
+                left: #{ ( -1 * ( ($project__image__width * .5) + ( $project__image__width * random() * 0.5 ) )) + ((round(random()) * $project__image__width) ) }rem;
+                
+                /* TODO: Get the result after the last "+" to return 1 or -1 */
+            }
+        }         
+    }
+     
+    .btn-container {
+        position: relative;
+    }
+    
+    .project__btn {
+        margin: 0 auto;
+        position: absolute;
+        transform: translateX(-50%);        
+        top: 0;
+        left: 50%;
+        line-height: 2em;
+    }
+    
+    .btn__area {
+        width: 33.333333%;
+        height: 100%;
+        border: 0.2em solid hsla(0, 100%, 100%, 1.0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        
+        &.btn__area--mid {
+            left: 33.33333%;
+            border-width: 1px 0;
+        }
+        &.btn__area--left {
+            border-width: 1px 0 1px 1px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        &.btn__area--right {
+            left: auto;
+            right: 0;
+            border-width: 1px 1px 1px 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+
+    
+    
+    .project__title {
+        text-transform: uppercase;
+        font-size: 3rem;
+        color: $theme-color__primary-2--alt-light;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+    }
+            
+    @media screen and (min-width: #{map_get($map__breakpoint-sizes, 'medium')}) {
+        
+        .project__title {
+            font-size: 5.0rem;
+        }
+        .subtitle {
+            font-size: 1.6rem;
+        }       
+    }
+
+
+
+
+
+    
+}

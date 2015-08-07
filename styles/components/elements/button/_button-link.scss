@@ -1,0 +1,7 @@
+.btn-link {
+    @extend %button-link;
+}
+
+.btn-link--holo {
+    @extend %button-link--holo;
+}
