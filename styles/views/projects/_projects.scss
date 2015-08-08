@@ -1,4 +1,6 @@
 .projects {
-        
-
+    
+    /* Start off hidden, so that we can animate the visibility in when we're ready to show */
+    opacity: 0;
+    visibility: hidden;
 }

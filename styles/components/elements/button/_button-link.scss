@@ -1,7 +1,11 @@
 .btn-link {
-    @extend %button-link;
+    
+    &:not(.btn-link--holo) {
+        @extend %button-link;
+    }
+    
+    &.btn-link--holo {
+        @extend %button-link--holo;
+    }
 }
 
-.btn-link--holo {
-    @extend %button-link--holo;
-}

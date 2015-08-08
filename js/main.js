@@ -6,6 +6,9 @@ var app = (function (exports) {
             project: '.project',
             projectImage: '.project__image',
             projectButtonContainer: '.btn-container', 
+            projectButton: '.project__btn',
+            projectButtonAreas: '.btn__area',
+            projectButtonText: '.btn__text',
             projectTitle: '.project__title',
             projectSubtitle: '.project__subtitle',
             backgroundImgFloaterContainer: '.background-floaters',
@@ -15,9 +18,13 @@ var app = (function (exports) {
         projectsContainerElem = document.querySelector(SELECTORS.projectsContainer),
         projectElem = projectsContainerElem.querySelector(SELECTORS.project),
         projectImageElem = projectElem.querySelector(SELECTORS.projectImage),
-        projectTitleElem = projectElem.querySelector(SELECTORS.projectTitle),
+        projectTitleElem = projectElem.querySelector(SELECTORS.projectTitle),    
         projectSubtitleElem = projectElem.querySelector(SELECTORS.projectSubtitle),
         projectButtonContainer = projectElem.querySelector(SELECTORS.projectButtonContainer),
+        projectButtonElem = projectButtonContainer.querySelector(SELECTORS.projectButton),
+        projectButtonAreas = projectButtonContainer.querySelectorAll(SELECTORS.projectButtonAreas),
+        projectButtonText = projectButtonContainer.querySelector(SELECTORS.projectButtonText),
+        
         
         backgroundImageFloaterContainer =
             projectElem.querySelector(SELECTORS.backgroundImgFloaterContainer),
@@ -33,6 +40,7 @@ var app = (function (exports) {
         
         masterTL,
         projectTL,
+        projectsCTATL,   // projects Call-To-Action TL
         
         TL_LABELS = {
             projectImageIn: 'imageIn',
@@ -47,9 +55,14 @@ var app = (function (exports) {
             glidingProjectElements: Linear.easeNone
         },
         
+        DURATIONS = {
+            
+        },
+        
         projectTLOpts = {
             repeat: -1,
-            repeatDelay: 2
+            repeatDelay: 2,
+            paused: false
         };
         
         
@@ -82,8 +95,7 @@ var app = (function (exports) {
                 xPercent: '-10',  // don't move all the way to zero, b/c we'll add some slow-motion as well
                 ease: EASINGS.viewSliding
             }
-        );
-        
+        );        
         return tween;                                            
     }
     
@@ -152,7 +164,7 @@ var app = (function (exports) {
     function glideProjectImage () {
         var tween = TweenMax.to(
             projectImageElem,
-            3,
+            5,
             {xPercent: '0', ease: EASINGS.glidingProjectElements}
         );
         return tween;
@@ -161,15 +173,15 @@ var app = (function (exports) {
     function glideBackgroundFloaters () {
         var tween = TweenMax.to(
             backgroundImageFloaterContainer,
-            2,
+            4.1,
             { x: '-5', ease: EASINGS.glidingProjectElements }
         );
         return tween;
     }
     
-    function slideOutTitleAndSubTitle () {
+    function slideOutContentBelowImage () {
         var tween = TweenMax.to(
-            [projectTitleElem, projectSubtitleElem],
+            [projectTitleElem, projectSubtitleElem, projectButtonContainer],
             0.5,
             {autoAlpha: 0, xPercent: '+=10', ease: EASINGS.viewSliding}
         );
@@ -186,52 +198,106 @@ var app = (function (exports) {
     }
     
     
+    function removeProjectSubtitle () {
+        var tween = TweenMax.to(
+            projectSubtitleElem,
+            0.3,
+            {autoAlpha: 0, yPercent: 100, ease: Back.easeOut}
+        );
+        return tween;
+    }
     
     
+    function slideDownButtonAreas () {
+        var tween = TweenMax.staggerFrom(
+            projectButtonAreas,
+            0.3,
+            {autoAlpha: 0, yPercent: -100, ease: Back.easeOut},
+            0.1
+        );
+        return tween;
+    }
+    
+    function bringInButtonText () {
+        var tween = TweenMax.from(
+            projectButtonText,
+            0.3,
+            { autoAlpha: 0, x: '-100%', ease: EASINGS.viewSliding }
+        );
+        return tween;
+    }
+        
     
     
     function slideInProjectElements () {        
         projectTL.add(blurNonImageElems());
         projectTL.add(slideInProjectImage());
-        projectTL.add(TL_LABELS.projectImageIn);
-        projectTL.add(bubbleInImageFloaters());
-        projectTL.add(TL_LABELS.backgroundImgFloatersIn);
-        projectTL.add(slideInProjectTitle());
-        projectTL.add(slideInProjectSubtitle());
-        projectTL.add(TL_LABELS.projectTitleIn);        
+        projectTL.addLabel(TL_LABELS.projectImageIn);
+        projectTL.add(bubbleInImageFloaters(), '-=0.2');
+        projectTL.addLabel(TL_LABELS.backgroundImgFloatersIn);
+        projectTL.add(slideInProjectTitle(), '-=0.4');
+        projectTL.add(slideInProjectSubtitle(), '-=0.5');
+        projectTL.addLabel(TL_LABELS.projectTitleIn);  
     }
     
+
+    /**
+     * add Call-To-Action TL to the projects TL
+     *
+     */
+    function callToAction () {
+        projectsCTATL.set(projectButtonContainer, {autoAlpha: 1});
+        projectsCTATL.add(removeProjectSubtitle());
+        projectsCTATL.add(slideDownButtonAreas());
+        projectsCTATL.add(bringInButtonText(), '-=0.2');
+        projectTL.add(projectsCTATL, '+=2');
+    }
     
+        
     function slowlyGlideProjectElementsAround () {
-        projectTL.add(glideProjectTitle());
-        projectTL.add(glideProjectSubtitle());
-        projectTL.add(TL_LABELS.projectTitleGlideOut);
-        projectTL.add(glideProjectImage());
-        projectTL.add(TL_LABELS.projectImageGlideOut);
-        projectTL.add(glideBackgroundFloaters());
+        projectTL.add(glideProjectTitle(), (TL_LABELS.projectTitleIn + '-=0.1') );
+        projectTL.add(glideProjectSubtitle(), (TL_LABELS.projectTitleIn + '-=0.2'));
+        projectTL.addLabel(TL_LABELS.projectTitleGlideOut);
+        projectTL.add(glideProjectImage(), TL_LABELS.projectImageIn);
+        projectTL.addLabel(TL_LABELS.projectImageGlideOut);
+        projectTL.add(glideBackgroundFloaters(), TL_LABELS.backgroundImgFloatersIn);
     }
     
-    
-    
+        
     function slideOutProjectElements () {
-        projectTL.add(slideOutTitleAndSubTitle());
-        projectTL.add(slideOutProjectImage());
+        projectTL.add(slideOutContentBelowImage(), TL_LABELS.projectTitleGlideOut);
+        projectTL.add(slideOutProjectImage(), TL_LABELS.projectTitleGlideOut);
     }
     
+    
+        
     
     
     function animateProject () {            
         slideInProjectElements();
+        callToAction();
         slowlyGlideProjectElementsAround();
         slideOutProjectElements();
     }
+        
     
-    
+    /**
+     * We're now ready to display our content -- which 
+     * our CSS is hidding on init -- so let's give it some alpha!
+     */
+    function alphabetizeContent () {
+        masterTL.set(projectsContainerElem, {autoAlpha: 1});
+    }
     
     function init () {
+        
+        masterTL = new TimelineMax();
         projectTL = new TimelineMax(projectTLOpts);
+        projectsCTATL = new TimelineMax();
+        
         currentProjectClass = projectElem.classList.item(1);
         
+        alphabetizeContent();
         animateProject();
     }
     

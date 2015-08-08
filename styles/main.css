@@ -13,7 +13,7 @@
 /*
  * Easing functions
  */
-.btn-link, .btn {
+.btn-link:not(.btn-link--holo), .btn:not(.btn--holo) {
   height: 4.8rem;
   width: 15rem;
   padding: 0.5em 0.8em;
@@ -30,7 +30,7 @@
   text-align: center;
   display: block; }
 
-.btn-link--holo, .btn--holo {
+.btn-link.btn-link--holo, .btn.btn--holo {
   height: 4.8rem;
   width: 15rem;
   padding: 0.5em 0.8em;
@@ -48,10 +48,10 @@
 /**
  * A link styled as a button
  */
-.btn-link {
+.btn-link:not(.btn-link--holo) {
   text-decoration: none; }
 
-.btn-link--holo {
+.btn-link.btn-link--holo {
   text-decoration: none; }
 
 .btn-fab {
@@ -425,112 +425,112 @@
 
 .project .background-floater:nth-child(1) {
   top: -18.2rem;
-  left: -22.06789rem;
+  left: -14.85389rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(2) {
-  top: -7.2rem;
-  left: 11.21591rem;
+  top: 1.8rem;
+  left: -24.14749rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(3) {
-  top: 0.8rem;
-  left: 6.5154rem;
+  top: -6.2rem;
+  left: 11.37161rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(4) {
-  top: 7.8rem;
-  left: -23.84214rem;
+  top: -10.2rem;
+  left: -18.40716rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(5) {
-  top: -2.2rem;
-  left: 8.74984rem;
+  top: -10.2rem;
+  left: -14.17828rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(6) {
-  top: 7.8rem;
-  left: -23.58016rem;
+  top: -9.2rem;
+  left: -19.82067rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(7) {
-  top: -16.2rem;
-  left: -20.18111rem;
+  top: 6.8rem;
+  left: -23.20598rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(8) {
-  top: -11.2rem;
-  left: -20.53458rem;
+  top: -9.2rem;
+  left: -18.68482rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(9) {
-  top: -8.2rem;
-  left: -16.06262rem;
+  top: -1.2rem;
+  left: -22.29529rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(10) {
-  top: -1.2rem;
-  left: 0.27604rem;
+  top: -3.2rem;
+  left: 0.35395rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(11) {
-  top: 0.8rem;
-  left: -20.53103rem;
+  top: -16.2rem;
+  left: -23.88903rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(12) {
-  top: -13.2rem;
-  left: -12.40709rem;
+  top: -14.2rem;
+  left: 9.0615rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(13) {
-  top: -15.2rem;
-  left: -13.33057rem;
+  top: -0.2rem;
+  left: -13.48244rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(14) {
-  top: 7.8rem;
-  left: -21.96171rem;
+  top: -7.2rem;
+  left: -20.18706rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(15) {
-  top: -6.2rem;
-  left: -12.69409rem;
+  top: 7.8rem;
+  left: -20.62621rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(16) {
-  top: 4.8rem;
-  left: -13.2795rem;
+  top: -15.2rem;
+  left: 1.85868rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(17) {
-  top: -2.2rem;
-  left: 6.44534rem;
+  top: -9.2rem;
+  left: -19.18823rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(18) {
-  top: -10.2rem;
-  left: -17.77547rem;
+  top: -9.2rem;
+  left: 2.86783rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(19) {
-  top: -9.2rem;
-  left: -18.68678rem;
+  top: -23.2rem;
+  left: 0.23584rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(20) {
-  top: -0.2rem;
-  left: 6.40274rem;
+  top: -22.2rem;
+  left: -21.27991rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(21) {
-  top: 0.8rem;
-  left: -23.6985rem;
+  top: 4.8rem;
+  left: -23.55668rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(22) {
-  top: -23.2rem;
-  left: 0.30956rem;
+  top: -3.2rem;
+  left: 1.2962rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .btn-container {
@@ -1203,3 +1203,7 @@ body.project-3 {
   background-color: #988685; }
 
 /* Import styles for view sections/pages here */
+.projects {
+  /* Start off hidden, so that we can animate the visibility in when we're ready to show */
+  opacity: 0;
+  visibility: hidden; }
