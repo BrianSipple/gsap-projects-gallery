@@ -73,6 +73,19 @@
         }                
     }
     
+    .project__image-svg-loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: #{$project__image__width}rem;
+        height: #{$project__image__height}rem;
+        z-index: 5;
+        opacity: 0.7;
+        
+        /* Rotate the SVG so that animation begins from top */
+        transform: rotate(-90deg);  
+    }
+    
     .background-floaters {
         position: absolute;
         top: 70%;
@@ -156,6 +169,7 @@
      
     .btn-container {
         position: relative;
+        pointer: cursor;
     }
     
     .project__btn {

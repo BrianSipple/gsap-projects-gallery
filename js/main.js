@@ -5,6 +5,7 @@ var app = (function (exports) {
             projectsContainer: '.projects',
             project: '.project',
             projectImage: '.project__image',
+            projectLoaderSVG: '.project__image-svg-loader circle',
             projectButtonContainer: '.btn-container', 
             projectButton: '.project__btn',
             projectButtonAreas: '.btn__area',
@@ -17,6 +18,7 @@ var app = (function (exports) {
     
         projectsContainerElem = document.querySelector(SELECTORS.projectsContainer),
         projectElems = projectsContainerElem.querySelectorAll(SELECTORS.project),
+        projectButtonContainers = projectsContainerElem.querySelectorAll(SELECTORS.projectButtonContainer),
         
         
         previousProjectClass = '',
@@ -24,7 +26,6 @@ var app = (function (exports) {
         
         masterTL,
         projectTL,
-        projectsCTATL,   // projects Call-To-Action TL
         
         TL_LABELS = {
             projectImageIn: 'imageIn',
@@ -40,7 +41,13 @@ var app = (function (exports) {
         },
         
         DURATIONS = {
-            
+            projectLoader: 5
+        },
+                
+        projectTLOpts = {
+            paused: true,
+            onStart: setBodyClass,
+            onStartParams: [currentProjectClass]
         },
         
         masterTLOpts = {
@@ -48,6 +55,7 @@ var app = (function (exports) {
             repeatDelay: 2,
             paused: true
         };
+    
     
     
     function createProjectTLs () {
@@ -69,6 +77,7 @@ var app = (function (exports) {
         
         var            
             projectImageElem = projectElem.querySelector(SELECTORS.projectImage),
+            projectLoaderSVG = projectElem.querySelector(SELECTORS.projectLoaderSVG),
             projectTitleElem = projectElem.querySelector(SELECTORS.projectTitle),    
             projectSubtitleElem = projectElem.querySelector(SELECTORS.projectSubtitle),
             projectButtonContainer = projectElem.querySelector(SELECTORS.projectButtonContainer),
@@ -87,10 +96,13 @@ var app = (function (exports) {
                 backgroundImageFloaterContainer.querySelectorAll(SELECTORS.backgroundImgFloaters),
 
 
-            projectImageBefore = curry(getPseudoBeforeVal)(projectImageElem),
-            projectImageAfter = curry(getPseudoAfterVal)(projectImageElem),
+            //projectImageBefore = curry(getPseudoBeforeVal)(projectImageElem),
+            //projectImageAfter = curry(getPseudoAfterVal)(projectImageElem),
+            projectImageBefore = CSSRulePlugin.getRule(SELECTORS.projectImage + ':before'),
+            projectImageAfter = CSSRulePlugin.getRule(SELECTORS.projectImage + ':after'),
             
             projectTL,
+            projectLoaderTL,
             projectCTATL;  // project Call-To-Action TL
                 
                 
@@ -125,7 +137,6 @@ var app = (function (exports) {
             return tween;                                            
         }
 
-
         function bubbleInImageFloaters () {
             var tween = TweenMax.staggerFromTo(
                 backgroundImageFloaters,
@@ -145,7 +156,6 @@ var app = (function (exports) {
             );
             return tween;        
         }
-
 
         function slideInProjectTitle () {
             var tween = TweenMax.fromTo(
@@ -167,7 +177,6 @@ var app = (function (exports) {
             return tween;
         }
 
-
         function glideProjectTitle () {
             var tween = TweenMax.to(
                 projectTitleElem,
@@ -176,7 +185,6 @@ var app = (function (exports) {
             );
             return tween;
         }
-
 
         function glideProjectSubtitle () {
             var tween = TweenMax.to(
@@ -187,11 +195,20 @@ var app = (function (exports) {
             return tween;
         }
 
+        /**
+         * Glides project image to center and, on completion, pauses the TL temporarily
+         * so that the user can interact with the button         
+         */
         function glideProjectImage () {
             var tween = TweenMax.to(
                 projectImageElem,
                 5,
-                {xPercent: '0', ease: EASINGS.glidingProjectElements}
+                {
+                    xPercent: '0',
+                    ease: EASINGS.glidingProjectElements,
+                    onComplete: pauseMasterTLWithinProjectTL,
+                    onCompleteParams: [currentProjectClass, projectLoaderTL]
+                }
             );
             return tween;
         }
@@ -204,6 +221,32 @@ var app = (function (exports) {
             );
             return tween;
         }
+        
+        function fillLoader () {
+
+            var loaderCircumference = 
+                Number(projectLoaderSVG.getAttribute('r')) * 2 * Math.PI;
+            
+            var tween = TweenMax.fromTo(
+                projectLoaderSVG,
+                DURATIONS.projectLoader,
+                { strokeDasharray: loaderCircumference, strokeDashoffset: loaderCircumference },
+                { strokeDasharray: loaderCircumference, strokeDashoffset: 0, ease: Power0.easeNone }
+                //{ drawSVG: '0% 100%' },
+                //{ drawSVG: '100%' }
+            );
+            return tween;
+        }
+        
+        function fadeOutLoader () {
+            var tween = TweenMax.to(
+                projectLoaderSVG,
+                0.4,
+                { autoAlpha: 0, onComplete: resumeMasterTL }
+            );
+            return tween;
+        }
+                
 
         function slideOutContentBelowImage () {
             var tween = TweenMax.to(
@@ -223,7 +266,6 @@ var app = (function (exports) {
             return tween;
         }
 
-
         function removeProjectSubtitle () {
             var tween = TweenMax.to(
                 projectSubtitleElem,
@@ -232,7 +274,6 @@ var app = (function (exports) {
             );
             return tween;
         }
-
 
         function slideDownButtonAreas () {
             var tween = TweenMax.staggerFrom(
@@ -272,36 +313,40 @@ var app = (function (exports) {
          *
          */
         function callToAction () {
-            projectsCTATL.set(projectButtonContainer, {autoAlpha: 1});
-            projectsCTATL.add(removeProjectSubtitle());
-            projectsCTATL.add(slideDownButtonAreas());
-            projectsCTATL.add(bringInButtonText(), '-=0.2');
-            projectTL.add(projectsCTATL, '+=2');
+            projectCTATL.set(projectButtonContainer, {autoAlpha: 1});
+            projectCTATL.add(removeProjectSubtitle());
+            projectCTATL.add(slideDownButtonAreas());
+            projectCTATL.add(bringInButtonText(), '-=0.2');
+            projectTL.add(projectCTATL, '+=2');
         }
 
 
-        function slowlyGlideProjectElementsAround () {
+        function slowlyGlideProjectElementsToCenterStop () {
             projectTL.add(glideProjectTitle(), (TL_LABELS.projectTitleIn + '-=0.1') );
+            debugger;
             projectTL.add(glideProjectSubtitle(), (TL_LABELS.projectTitleIn + '-=0.2'));
             projectTL.addLabel(TL_LABELS.projectTitleGlideOut);
             projectTL.add(glideProjectImage(), TL_LABELS.projectImageIn);
             projectTL.addLabel(TL_LABELS.projectImageGlideOut);
             projectTL.add(glideBackgroundFloaters(), TL_LABELS.backgroundImgFloatersIn);
         }
+        
+        function animateLoader () {
+            //projectLoaderTL.set(projectLoaderSVG, {autoAlpha: 1});
+            projectLoaderTL.to([projectImageAfter, projectImageBefore], 0.4, {cssRule: {opacity: 0}});
+            projectLoaderTL.add(fillLoader());
+            projectLoaderTL.add(fadeOutLoader());
+            projectLoaderTL.to([projectImageAfter, projectImageBefore], 0.4, {cssRule: {opacity: 1}}, '-=0.4');
+        }
 
 
         function slideOutProjectElements () {
-            projectTL.add(slideOutContentBelowImage(), TL_LABELS.projectTitleGlideOut);
-            projectTL.add(slideOutProjectImage(), TL_LABELS.projectTitleGlideOut);
+            projectTL.add(slideOutContentBelowImage(), TL_LABELS.projectImageGlideOut);
+            projectTL.add(slideOutProjectImage(), TL_LABELS.projectImageGlideOut);
             //projectTL.set(projectImageElem, {autoAlpha: 0});
         }
         
-        function setBodyClass (cl) {
-            if (cl) {
-                // If we need to preserve other defaults, track those and include them here
-                document.body.className = cl;    
-            }                        
-        }
+        
         
         function animateProject () { 
 
@@ -309,17 +354,21 @@ var app = (function (exports) {
             // have our project-specific style rules applied
             currentProjectClass = projectElem.classList.item(1);
             
-            projectTL = new TimelineMax({
-                onStart: setBodyClass,
-                onStartParams: [currentProjectClass]
-            }),                
-            projectsCTATL = new TimelineMax();
+            projectTL = new TimelineMax(projectTLOpts),                
+            projectCTATL = new TimelineMax();
+            projectLoaderTL = new TimelineMax({paused: true});
             
             
-            slideInProjectElements();
+            slideInProjectElements();            
             callToAction();
-            slowlyGlideProjectElementsAround();
+            slowlyGlideProjectElementsToCenterStop();
+            
+            if (projectLoaderSVG) {
+                animateLoader();    
+            }
+            
             slideOutProjectElements();                   
+            projectTL.play();
         }
         
         animateProject();
@@ -327,8 +376,26 @@ var app = (function (exports) {
     }
     
     
-
+    function wireUpEventListeners () {
+//        [].forEach.call(projectButtonElems, function (btnElem) {
+//            btnElem.addEventListener('click', resumeMasterTL, false);
+//        });
+        projectButtonContainers[0].addEventListener('click', handleIntroButtonClick, false);
+    }
+    
+    
+    function init () {        
+        masterTL = new TimelineMax(masterTLOpts);
         
+        wireUpEventListeners();
+        alphabetizeContent();
+        createProjectTLs();
+        masterTL.play();
+    }
+    
+//////////////////////////////////////////////////////
+//// Master TL Methods
+//////////////////////////////////////////////////////    
     
     /**
      * We're now ready to display our content -- which 
@@ -338,12 +405,53 @@ var app = (function (exports) {
         masterTL.set(projectsContainerElem, {autoAlpha: 1});
     }
     
-    function init () {        
-        masterTL = new TimelineMax(masterTLOpts);
-        alphabetizeContent();
-        createProjectTLs();
-        masterTL.play();
+    
+    /**
+     * pauses the Master TL within an individual project TL and,
+     * if the project has a loader, begins playing its timeline
+     */
+    function pauseMasterTLWithinProjectTL (currentProjectClass, projectLoaderTL) {
+        debugger;
+        masterTL.pause();
+        
+        if (currentProjectClass !== 'project-0') {
+            projectLoaderTL.seek(0);
+            projectLoaderTL.play();
+        }
     }
+    
+    function resumeMasterTL () {
+        debugger;
+        masterTL.resume();
+    }
+    
+    
+    function setBodyClass (cl) {
+        if (cl) {
+            // If we need to preserve other defaults, track those and include them here
+            document.body.className = cl;    
+        }                        
+    }
+    
+    /**
+     * When the intro button is clicked, resume the rest of the timeline
+     */
+    function handleIntroButtonClick (ev) {
+        debugger;
+        
+        // prevent the link from opening -- just run the timeline function
+        if (ev) {
+            ev.preventDefault();
+            
+        } else {
+            ev.returnValue = false;
+        }
+        resumeMasterTL();
+    }
+        
+        
+    
+
     
     return {
         init: init

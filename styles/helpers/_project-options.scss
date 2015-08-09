@@ -8,6 +8,12 @@ $background-floater__size--XL: 3.0rem;
 
 $project-colors: (
     
+    
+    /* Intro */
+    project-0: (
+    ),
+    
+    
     /* Christmallax */
     project-1: (
                     
@@ -81,7 +87,8 @@ $project-colors: (
         floater-background--M: hsla(315, 47%, 66%, 0.3),
         floater-background--L: hsla(13, 82%, 78%, 0.5),
         floater-background--XL: hsla(315, 47%, 66%, 0.7)
-    )
+    )    
+    
 );
 
 
