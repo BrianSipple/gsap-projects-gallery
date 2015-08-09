@@ -1,15 +1,4 @@
-@import 'project-options';
-
-$project__image__width: 24.2;
-$project__image__height: 24.2;
-
-$background-floater__size--S: .5rem;
-$background-floater__size--M: 1.0rem;
-$background-floater__size--L: 1.5rem;
-$background-floater__size--XL: 3.0rem;
-
-
-
+@import '../../../helpers/project-options';
 
 .project {
     
@@ -215,15 +204,27 @@ $background-floater__size--XL: 3.0rem;
             border-bottom-right-radius: 3px;
         }
     }
-
-        
-    .project__title {
+    
+    .btn__text {
         
         .project-1 & {
             color: getProjectColor(project-1, primary);
         }
         .project-2 & {
             color: getProjectColor(project-2, primary);
+        }
+        .project-3 & {
+            color: getProjectColor(project-3, primary);
+        }
+    }
+ 
+    .project__title {
+        
+        .project-1 & {
+            color: getProjectColor(project-1, primary);
+        }
+        .project-2 & {
+            color: getProjectColor(project-2, primary);  // TODO: Implement dark color
         }
         .project-3 & {
             color: getProjectColor(project-3, primary);
@@ -238,13 +239,13 @@ $background-floater__size--XL: 3.0rem;
         font-size: 1.6rem;
         
         .project-1 & {
-            color: getProjectColor(project-1, primary--light);
+            color: getProjectColor(project-1, primary--light-shade);
         }
         .project-2 & {
-            color: getProjectColor(project-2, primary--light);
+            color: getProjectColor(project-2, primary--light-shade);
         }
         .project-3 & {
-            color: getProjectColor(project-3, primary--light);
+            color: getProjectColor(project-3, primary--light-shade);
         }
     }
             

@@ -388,13 +388,13 @@
   z-index: 2; }
 
 .project-1 .project .project__image:before {
-  background-color: rgba(242, 236, 191, 0.8); }
+  background-color: rgba(99, 98, 167, 0.8); }
 
 .project-2 .project .project__image:before {
-  background-color: rgba(122, 145, 189, 0.8); }
+  background-color: rgba(253, 246, 150, 0.8); }
 
 .project-3 .project .project__image:before {
-  background-color: rgba(145, 108, 85, 0.8); }
+  background-color: rgba(74, 161, 85, 0.8); }
 
 .project .project__image:after {
   bottom: -6px;
@@ -402,13 +402,13 @@
   z-index: 3; }
 
 .project-1 .project .project__image:after {
-  background-color: rgba(121, 140, 29, 0.3); }
+  background-color: rgba(99, 98, 167, 0.3); }
 
 .project-2 .project .project__image:after {
-  background-color: rgba(165, 130, 191, 0.3); }
+  background-color: rgba(253, 246, 150, 0.3); }
 
 .project-3 .project .project__image:after {
-  background-color: rgba(142, 93, 135, 0.3); }
+  background-color: rgba(74, 161, 85, 0.3); }
 
 .project .background-floaters {
   position: absolute;
@@ -426,161 +426,161 @@
          */ }
 
 .project-1 .project .background-floater {
-  background-color: rgba(242, 233, 192, 0.3); }
+  background-color: rgba(243, 250, 183, 0.3); }
 
 .project-2 .project .background-floater {
-  background-color: rgba(165, 130, 191, 0.3); }
+  background-color: rgba(238, 134, 254, 0.3); }
 
 .project-3 .project .background-floater {
-  background-color: rgba(142, 93, 135, 0.3); }
+  background-color: rgba(209, 128, 189, 0.3); }
 
 .project .background-floater.sizeS {
   width: 0.5rem;
   height: 0.5rem; }
 
 .project-1 .project .background-floater.sizeS {
-  background-color: rgba(242, 233, 192, 0.1); }
+  background-color: rgba(250, 226, 183, 0.1); }
 
 .project-2 .project .background-floater.sizeS {
-  background-color: rgba(165, 130, 191, 0.1); }
+  background-color: rgba(128, 122, 230, 0.1); }
 
 .project-3 .project .background-floater.sizeS {
-  background-color: rgba(142, 93, 135, 0.1); }
+  background-color: rgba(245, 173, 153, 0.1); }
 
 .project .background-floater.sizeL {
   width: 1.5rem;
   height: 1.5rem; }
 
 .project-1 .project .background-floater.sizeL {
-  background-color: rgba(242, 233, 192, 0.5); }
+  background-color: rgba(250, 226, 183, 0.5); }
 
 .project-2 .project .background-floater.sizeL {
-  background-color: rgba(165, 130, 191, 0.5); }
+  background-color: rgba(128, 122, 230, 0.5); }
 
 .project-3 .project .background-floater.sizeL {
-  background-color: rgba(142, 93, 135, 0.5); }
+  background-color: rgba(245, 173, 153, 0.5); }
 
 .project .background-floater.sizeXL {
   width: 3rem;
   height: 3rem; }
 
 .project-1 .project .background-floater.sizeXL {
-  background-color: rgba(242, 233, 192, 0.7); }
+  background-color: rgba(243, 250, 183, 0.7); }
 
 .project-2 .project .background-floater.sizeXL {
-  background-color: rgba(165, 130, 191, 0.7); }
+  background-color: rgba(238, 134, 254, 0.7); }
 
 .project-3 .project .background-floater.sizeXL {
-  background-color: rgba(142, 93, 135, 0.7); }
+  background-color: rgba(209, 128, 189, 0.7); }
 
 .project .background-floater:nth-child(1) {
-  top: -15.2rem;
-  left: -23.91063rem;
+  top: -11.2rem;
+  left: 4.15532rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(2) {
-  top: -19.2rem;
-  left: 4.16531rem;
+  top: -22.2rem;
+  left: -17.08551rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(3) {
-  top: -21.2rem;
-  left: -20.03519rem;
+  top: -0.2rem;
+  left: 5.74679rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(4) {
-  top: -23.2rem;
-  left: -13.50479rem;
+  top: -18.2rem;
+  left: -12.42085rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(5) {
-  top: -20.2rem;
-  left: -18.66761rem;
+  top: -7.2rem;
+  left: 4.86248rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(6) {
-  top: -15.2rem;
-  left: -18.29366rem;
+  top: 6.8rem;
+  left: 0.90827rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(7) {
-  top: -10.2rem;
-  left: -16.80052rem;
+  top: 2.8rem;
+  left: 6.00419rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(8) {
-  top: -0.2rem;
-  left: -17.32084rem;
+  top: -5.2rem;
+  left: -14.05439rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(9) {
-  top: 7.8rem;
-  left: 6.54876rem;
+  top: 5.8rem;
+  left: 4.41986rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(10) {
-  top: -13.2rem;
-  left: -22.39914rem;
+  top: -18.2rem;
+  left: -14.22241rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(11) {
-  top: -6.2rem;
-  left: 11.43797rem;
+  top: -15.2rem;
+  left: 11.75093rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(12) {
-  top: -8.2rem;
-  left: 6.38302rem;
+  top: -19.2rem;
+  left: -15.50579rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(13) {
-  top: 0.8rem;
-  left: -17.67201rem;
+  top: 2.8rem;
+  left: -19.34097rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(14) {
-  top: -8.2rem;
-  left: -14.0468rem;
+  top: -12.2rem;
+  left: -14.03931rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(15) {
-  top: -7.2rem;
-  left: 9.86445rem;
+  top: -12.2rem;
+  left: 6.56459rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(16) {
-  top: -11.2rem;
-  left: -15.43482rem;
+  top: -12.2rem;
+  left: 0.98536rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(17) {
   top: 0.8rem;
-  left: 3.36438rem;
+  left: 7.16643rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(18) {
-  top: 3.8rem;
-  left: 1.63449rem;
+  top: -7.2rem;
+  left: 4.09703rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(19) {
-  top: -21.2rem;
-  left: -16.42243rem;
+  top: -10.2rem;
+  left: 7.7321rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(20) {
-  top: -15.2rem;
-  left: 8.33395rem;
+  top: -0.2rem;
+  left: 4.2914rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(21) {
-  top: -1.2rem;
-  left: -14.18828rem;
+  top: -21.2rem;
+  left: -18.84538rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(22) {
-  top: -20.2rem;
-  left: 9.03055rem;
+  top: -0.2rem;
+  left: -13.49309rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .btn-container {
@@ -604,13 +604,13 @@
   bottom: 0; }
 
 .project-1 .project .btn__area {
-  border-color: #f2e9c0; }
+  border-color: #f3eabf; }
 
 .project-2 .project .btn__area {
-  border-color: #569bdc; }
+  border-color: #b796fd; }
 
 .project-3 .project .btn__area {
-  border-color: #5bb982; }
+  border-color: #f2a1b5; }
 
 .project .btn__area.btn__area--mid {
   left: 33.33333%;
@@ -628,31 +628,37 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
 
+.project-1 .project .btn__text {
+  color: #f3eabf; }
+
+.project-2 .project .btn__text {
+  color: #b796fd; }
+
+.project-3 .project .btn__text {
+  color: #f2a1b5; }
+
 .project .project__title {
   text-transform: uppercase;
   font-size: 3rem;
   color: #f2ecbf; }
 
 .project-1 .project .project__title {
-  color: #f2e9c0; }
+  color: #f3eabf; }
 
 .project-2 .project .project__title {
-  color: #569bdc; }
+  color: #b796fd; }
 
 .project-3 .project .project__title {
-  color: #5bb982; }
+  color: #f2a1b5; }
 
 .project .subtitle {
   font-size: 1.6rem; }
 
 .project-1 .project .subtitle {
-  color: #bfbfb0; }
+  color: #fae2b7; }
 
 .project-2 .project .subtitle {
-  color: rgba(106, 155, 200, 0.7); }
-
-.project-3 .project .subtitle {
-  color: rgba(114, 161, 134, 0.7); }
+  color: #ee86fe; }
 
 @media screen and (min-width: 740px) {
   .project .project__title {
@@ -1120,9 +1126,6 @@ h1, h2, h3, h4 {
   text-align: left; }
 
 /*
- * A link styled as a button
- */
-/*
  * Sizing to juxtapose a small copy section against a larger body copy section
  * Note that the font sizes add to 2rem, and the and line heights sume to 48px,
  * which is the same line height for 32px type when set to 1.5
@@ -1273,16 +1276,16 @@ body {
   overflow-x: hidden;
   transition: background-color 0.4s linear; }
 
+/* Import styles for view sections/pages here */
 body.project-1 {
-  background-color: #4d5126; }
+  background-color: #726837; }
 
 body.project-2 {
-  background-color: #a8b183; }
+  background-color: #2c233e; }
 
 body.project-3 {
-  background-color: #988685; }
+  background-color: #71283a; }
 
-/* Import styles for view sections/pages here */
 .projects {
   /* Start off hidden, so that we can animate the visibility in when we're ready to show */
   opacity: 0;

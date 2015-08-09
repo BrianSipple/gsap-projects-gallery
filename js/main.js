@@ -19,7 +19,8 @@ var app = (function (exports) {
         projectElems = projectsContainerElem.querySelectorAll(SELECTORS.project),
         
         
-        currentProjectClass,    
+        previousProjectClass = '',
+        currentProjectClass = '',         
         
         masterTL,
         projectTL,
@@ -52,12 +53,8 @@ var app = (function (exports) {
     function createProjectTLs () {
         
         var tl;
-        for (var i = 0, l = projectElems.length; i < l; i++) {
-            
-            currentProjectClass = projectElems[i].classList.item(1);        
-
+        for (var i = 0, l = projectElems.length; i < l; i++) {                                                
             tl = createProjectTL(projectElems[i]);
-            debugger;
             masterTL.add(tl);
         }
     }
@@ -112,7 +109,6 @@ var app = (function (exports) {
 
 
         function slideInProjectImage () {
-            debugger;
             var tween = TweenMax.fromTo(
                 projectImageElem,
                 0.4,
@@ -300,14 +296,30 @@ var app = (function (exports) {
             //projectTL.set(projectImageElem, {autoAlpha: 0});
         }
         
-        function animateProject () {      
-            projectTL = new TimelineMax(),
+        function setBodyClass (cl) {
+            if (cl) {
+                // If we need to preserve other defaults, track those and include them here
+                document.body.className = cl;    
+            }                        
+        }
+        
+        function animateProject () { 
+
+            // Dynamically set the current project class on the body to
+            // have our project-specific style rules applied
+            currentProjectClass = projectElem.classList.item(1);
+            
+            projectTL = new TimelineMax({
+                onStart: setBodyClass,
+                onStartParams: [currentProjectClass]
+            }),                
             projectsCTATL = new TimelineMax();
+            
             
             slideInProjectElements();
             callToAction();
             slowlyGlideProjectElementsAround();
-            slideOutProjectElements(); 
+            slideOutProjectElements();                   
         }
         
         animateProject();

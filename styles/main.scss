@@ -5,16 +5,6 @@ body {
     color: $font-color__primary-text--white-on-dark-background;
     overflow-x: hidden;
     transition: background-color 0.4s linear;
-    
-    &.project-1 {
-        background-color: #4d5126;
-    }
-    &.project-2 {
-        background-color: #a8b183;
-    }
-    &.project-3 {
-        background-color: #988685;
-    } 
 }
 
 @import 'views/views';

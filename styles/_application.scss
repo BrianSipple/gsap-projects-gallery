@@ -166,13 +166,6 @@ h1, h2, h3, h4 {
 }
 
 
-/*
- * A link styled as a button
- */
-.link--button {
-  @extend %link--button;
-}
-
 
 /*
  * Sizing to juxtapose a small copy section against a larger body copy section

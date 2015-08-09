@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sass styles/main.scss styles/main.css
+node-sass styles/main.scss styles/main.css
 autoprefixer styles/main.css
 
-echo 'Sass and Autoprefixer tasks complete'
+echo 'Node Sass and Autoprefixer tasks complete'
 exit 0
