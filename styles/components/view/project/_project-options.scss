@@ -1,0 +1,53 @@
+$project__image__width: 24.2;
+$project__image__height: 24.2;
+
+$background-floater__size--S: .5rem;
+$background-floater__size--M: 1.0rem;
+$background-floater__size--L: 1.5rem;
+$background-floater__size--XL: 3.0rem;
+
+$project-colors: (
+    
+    /* Christmallax */
+    project-1: (
+        background: hsla(60, 33%, 23%, 1),
+        primary: hsla(50, 65%, 85%, 1),
+        primary--light: hsla(60, 10%, 72%, 1),
+        image-background--before: hsla(53, 67%, 85%, 0.8),
+        image-background--after: hsla(70, 66%, 33%, 0.3),
+        floater-background--S: hsla(50, 65%, 85%, 0.1),
+        floater-background--M: hsla(50, 65%, 85%, 0.3),
+        floater-background--L: hsla(50, 65%, 85%, 0.5),
+        floater-background--XL: hsla(50, 65%, 85%, 0.7)
+    ),
+       
+    /* Gameboy */
+    project-2: (
+        background: hsla(240, 2%, 18%, 1),
+        primary: hsla(209, 66%, 60%, 1),
+        primary--light: hsla(209, 46%, 60%, 0.7),
+        image-background--before: hsla(219, 34%, 61%, 0.8),
+        image-background--after: hsla(274, 32%, 63%, 0.3),
+        floater-background--S: hsla(274, 32%, 63%, 0.1),
+        floater-background--M: hsla(274, 32%, 63%, 0.3),
+        floater-background--L: hsla(274, 32%, 63%, 0.5),
+        floater-background--XL: hsla(274, 32%, 63%, 0.7)
+    ),
+    
+    project-3: (
+        background: hsla(4, 40%, 54%, 1),
+        primary: hsla(145, 40, 54, 1),
+        primary--light: hsla(145, 20, 54, 0.7),
+        image-background--before: hsla(23, 26%, 45%, 0.8),
+        image-background--after: hsla(308, 21%, 46%, 0.3),        
+        floater-background--S: hsla(308, 21%, 46%, 0.1),
+        floater-background--M: hsla(308, 21%, 46%, 0.3),
+        floater-background--L: hsla(308, 21%, 46%, 0.5),
+        floater-background--XL: hsla(308, 21%, 46%, 0.7)
+    )
+);
+
+
+@function getProjectColor($project: project-1, $component: background) {
+    @return map-get(map-get($project-colors, $project), $component);
+}

@@ -352,6 +352,8 @@
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 0;
+  visibility: hidden;
   transform: translateY(-50%); }
 
 .project .project__image {
@@ -381,16 +383,32 @@
   position: absolute; }
 
 .project .project__image:before {
-  background-color: rgba(242, 236, 189, 0.8);
   top: -5px;
   left: -5px;
   z-index: 2; }
 
+.project-1 .project .project__image:before {
+  background-color: rgba(242, 236, 191, 0.8); }
+
+.project-2 .project .project__image:before {
+  background-color: rgba(122, 145, 189, 0.8); }
+
+.project-3 .project .project__image:before {
+  background-color: rgba(145, 108, 85, 0.8); }
+
 .project .project__image:after {
-  background-color: rgba(121, 140, 29, 0.3);
   bottom: -6px;
   right: 6px;
   z-index: 3; }
+
+.project-1 .project .project__image:after {
+  background-color: rgba(121, 140, 29, 0.3); }
+
+.project-2 .project .project__image:after {
+  background-color: rgba(165, 130, 191, 0.3); }
+
+.project-3 .project .project__image:after {
+  background-color: rgba(142, 93, 135, 0.3); }
 
 .project .background-floaters {
   position: absolute;
@@ -403,134 +421,166 @@
   position: absolute;
   width: 1rem;
   height: 1rem;
-  background-color: rgba(242, 236, 189, 0.25);
   /*
          * Make random offsets for each of our floaters around the image
          */ }
 
+.project-1 .project .background-floater {
+  background-color: rgba(242, 233, 192, 0.3); }
+
+.project-2 .project .background-floater {
+  background-color: rgba(165, 130, 191, 0.3); }
+
+.project-3 .project .background-floater {
+  background-color: rgba(142, 93, 135, 0.3); }
+
 .project .background-floater.sizeS {
   width: 0.5rem;
-  height: 0.5rem;
-  background-color: rgba(242, 236, 189, 0.1); }
+  height: 0.5rem; }
+
+.project-1 .project .background-floater.sizeS {
+  background-color: rgba(242, 233, 192, 0.1); }
+
+.project-2 .project .background-floater.sizeS {
+  background-color: rgba(165, 130, 191, 0.1); }
+
+.project-3 .project .background-floater.sizeS {
+  background-color: rgba(142, 93, 135, 0.1); }
 
 .project .background-floater.sizeL {
   width: 1.5rem;
-  height: 1.5rem;
-  background-color: rgba(242, 236, 189, 0.4); }
+  height: 1.5rem; }
+
+.project-1 .project .background-floater.sizeL {
+  background-color: rgba(242, 233, 192, 0.5); }
+
+.project-2 .project .background-floater.sizeL {
+  background-color: rgba(165, 130, 191, 0.5); }
+
+.project-3 .project .background-floater.sizeL {
+  background-color: rgba(142, 93, 135, 0.5); }
 
 .project .background-floater.sizeXL {
   width: 3rem;
-  height: 3rem;
-  background-color: rgba(242, 236, 189, 0.6); }
+  height: 3rem; }
+
+.project-1 .project .background-floater.sizeXL {
+  background-color: rgba(242, 233, 192, 0.7); }
+
+.project-2 .project .background-floater.sizeXL {
+  background-color: rgba(165, 130, 191, 0.7); }
+
+.project-3 .project .background-floater.sizeXL {
+  background-color: rgba(142, 93, 135, 0.7); }
 
 .project .background-floater:nth-child(1) {
-  top: -18.2rem;
-  left: -14.85389rem;
+  top: -15.2rem;
+  left: -23.91063rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(2) {
-  top: 1.8rem;
-  left: -24.14749rem;
+  top: -19.2rem;
+  left: 4.16531rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(3) {
-  top: -6.2rem;
-  left: 11.37161rem;
+  top: -21.2rem;
+  left: -20.03519rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(4) {
-  top: -10.2rem;
-  left: -18.40716rem;
+  top: -23.2rem;
+  left: -13.50479rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(5) {
-  top: -10.2rem;
-  left: -14.17828rem;
+  top: -20.2rem;
+  left: -18.66761rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(6) {
-  top: -9.2rem;
-  left: -19.82067rem;
+  top: -15.2rem;
+  left: -18.29366rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(7) {
-  top: 6.8rem;
-  left: -23.20598rem;
+  top: -10.2rem;
+  left: -16.80052rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(8) {
-  top: -9.2rem;
-  left: -18.68482rem;
+  top: -0.2rem;
+  left: -17.32084rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(9) {
-  top: -1.2rem;
-  left: -22.29529rem;
+  top: 7.8rem;
+  left: 6.54876rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(10) {
-  top: -3.2rem;
-  left: 0.35395rem;
+  top: -13.2rem;
+  left: -22.39914rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(11) {
-  top: -16.2rem;
-  left: -23.88903rem;
+  top: -6.2rem;
+  left: 11.43797rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(12) {
-  top: -14.2rem;
-  left: 9.0615rem;
+  top: -8.2rem;
+  left: 6.38302rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(13) {
-  top: -0.2rem;
-  left: -13.48244rem;
+  top: 0.8rem;
+  left: -17.67201rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(14) {
-  top: -7.2rem;
-  left: -20.18706rem;
+  top: -8.2rem;
+  left: -14.0468rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(15) {
-  top: 7.8rem;
-  left: -20.62621rem;
+  top: -7.2rem;
+  left: 9.86445rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(16) {
-  top: -15.2rem;
-  left: 1.85868rem;
+  top: -11.2rem;
+  left: -15.43482rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(17) {
-  top: -9.2rem;
-  left: -19.18823rem;
+  top: 0.8rem;
+  left: 3.36438rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(18) {
-  top: -9.2rem;
-  left: 2.86783rem;
+  top: 3.8rem;
+  left: 1.63449rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(19) {
-  top: -23.2rem;
-  left: 0.23584rem;
+  top: -21.2rem;
+  left: -16.42243rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(20) {
-  top: -22.2rem;
-  left: -21.27991rem;
+  top: -15.2rem;
+  left: 8.33395rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(21) {
-  top: 4.8rem;
-  left: -23.55668rem;
+  top: -1.2rem;
+  left: -14.18828rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(22) {
-  top: -3.2rem;
-  left: 1.2962rem;
+  top: -20.2rem;
+  left: 9.03055rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .btn-container {
@@ -547,11 +597,20 @@
 .project .btn__area {
   width: 33.333333%;
   height: 100%;
-  border: 0.2em solid white;
+  border-style: solid;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0; }
+
+.project-1 .project .btn__area {
+  border-color: #f2e9c0; }
+
+.project-2 .project .btn__area {
+  border-color: #569bdc; }
+
+.project-3 .project .btn__area {
+  border-color: #5bb982; }
 
 .project .btn__area.btn__area--mid {
   left: 33.33333%;
@@ -574,12 +633,33 @@
   font-size: 3rem;
   color: #f2ecbf; }
 
+.project-1 .project .project__title {
+  color: #f2e9c0; }
+
+.project-2 .project .project__title {
+  color: #569bdc; }
+
+.project-3 .project .project__title {
+  color: #5bb982; }
+
 .project .subtitle {
   font-size: 1.6rem; }
 
+.project-1 .project .subtitle {
+  color: #bfbfb0; }
+
+.project-2 .project .subtitle {
+  color: rgba(106, 155, 200, 0.7); }
+
+.project-3 .project .subtitle {
+  color: rgba(114, 161, 134, 0.7); }
+
 @media screen and (min-width: 740px) {
   .project .project__title {
-    font-size: 5.0rem; }
+    font-size: 5.0rem;
+    /* Remove the line break from element main titles */ }
+  .project .project__title br {
+    display: none; }
   .project .subtitle {
     font-size: 1.6rem; } }
 

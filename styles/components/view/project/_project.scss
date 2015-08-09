@@ -1,3 +1,5 @@
+@import 'project-options';
+
 $project__image__width: 24.2;
 $project__image__height: 24.2;
 
@@ -5,10 +7,7 @@ $background-floater__size--S: .5rem;
 $background-floater__size--M: 1.0rem;
 $background-floater__size--L: 1.5rem;
 $background-floater__size--XL: 3.0rem;
-$background-floater__background-color--S: rgba(242, 236, 189, 0.1);
-$background-floater__background-color--M: rgba(242, 236, 189, 0.25);
-$background-floater__background-color--L: rgba(242, 236, 189, 0.40);
-$background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
+
 
 
 
@@ -20,6 +19,8 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
+    visibility: hidden;
     transform: translateY(-50%);
             
     .project__image {                                        
@@ -51,14 +52,32 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
             position: absolute;            
         }
         
-        &:before {
-            background-color: rgba(242, 236, 189, 0.8);
+        &:before {            
+            .project-1 & {
+                background-color: getProjectColor(project-1, image-background--before); 
+            }
+            .project-2 & {
+                background-color: getProjectColor(project-2, image-background--before); 
+            }
+            .project-3 & {
+                background-color: getProjectColor(project-3, image-background--before); 
+            }
+            
             top: -5px;
             left: -5px;
             z-index: 2;
         }
-        &:after {
-            background-color: rgba(121, 140, 29, 0.3);
+        
+        &:after {            
+            .project-1 & {
+                background-color: getProjectColor(project-1, image-background--after); 
+            }
+            .project-2 & {
+                background-color: getProjectColor(project-2, image-background--after); 
+            }
+            .project-3 & {
+                background-color: getProjectColor(project-3, image-background--after); 
+            }            
             bottom: -6px;
             right: 6px;
             z-index: 3;
@@ -78,22 +97,58 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
         position: absolute;
         width: $background-floater__size--M;
         height: $background-floater__size--M;
-        background-color: $background-floater__background-color--M;
         
+        .project-1 & {
+            background-color: getProjectColor(project-1, floater-background--M);
+        }
+        .project-2 & {
+            background-color: getProjectColor(project-2, floater-background--M);
+        }
+        .project-3 & {
+            background-color: getProjectColor(project-3, floater-background--M);
+        }
+                        
         &.sizeS {
             width: $background-floater__size--S;
             height: $background-floater__size--S;
-            background-color: $background-floater__background-color--S;
-        }
+            
+            .project-1 & {
+                background-color: getProjectColor(project-1, floater-background--S);
+            }
+            .project-2 & {
+                background-color: getProjectColor(project-2, floater-background--S);
+            }
+            .project-3 & {
+                background-color: getProjectColor(project-3, floater-background--S);
+            }            
+        }        
         &.sizeL {
             width: $background-floater__size--L;
             height: $background-floater__size--L;
-            background-color: $background-floater__background-color--L;
+            
+            .project-1 & {
+                background-color: getProjectColor(project-1, floater-background--L);
+            }
+            .project-2 & {
+                background-color: getProjectColor(project-2, floater-background--L);
+            }
+            .project-3 & {
+                background-color: getProjectColor(project-3, floater-background--L);
+            }             
         }
         &.sizeXL {
             width: $background-floater__size--XL;
             height: $background-floater__size--XL;
-            background-color: $background-floater__background-color--XL;
+            
+            .project-1 & {
+                background-color: getProjectColor(project-1, floater-background--XL);
+            }
+            .project-2 & {
+                background-color: getProjectColor(project-2, floater-background--XL);
+            }
+            .project-3 & {
+                background-color: getProjectColor(project-3, floater-background--XL);
+            } 
         }
         
         /*
@@ -126,11 +181,22 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
     .btn__area {
         width: 33.333333%;
         height: 100%;
-        border: 0.2em solid hsla(0, 100%, 100%, 1.0);
+        //border-width: 0.2em;
+        border-style: solid;
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
+        
+        .project-1 & {
+            border-color: getProjectColor(project-1, primary);
+        }
+        .project-2 & {
+            border-color: getProjectColor(project-2, primary);
+        }
+        .project-3 & {
+            border-color: getProjectColor(project-3, primary);
+        }
         
         &.btn__area--mid {
             left: 33.33333%;
@@ -150,9 +216,19 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
         }
     }
 
-    
-    
+        
     .project__title {
+        
+        .project-1 & {
+            color: getProjectColor(project-1, primary);
+        }
+        .project-2 & {
+            color: getProjectColor(project-2, primary);
+        }
+        .project-3 & {
+            color: getProjectColor(project-3, primary);
+        } 
+                
         text-transform: uppercase;
         font-size: 3rem;
         color: $theme-color__primary-2--alt-light;
@@ -160,16 +236,35 @@ $background-floater__background-color--XL: rgba(242, 236, 189, 0.6);
     
     .subtitle {
         font-size: 1.6rem;
+        
+        .project-1 & {
+            color: getProjectColor(project-1, primary--light);
+        }
+        .project-2 & {
+            color: getProjectColor(project-2, primary--light);
+        }
+        .project-3 & {
+            color: getProjectColor(project-3, primary--light);
+        }
     }
             
+    
+    
     @media screen and (min-width: #{map_get($map__breakpoint-sizes, 'medium')}) {
         
         .project__title {
             font-size: 5.0rem;
+            
+            /* Remove the line break from element main titles */
+            br {
+                display: none;
+            }
         }
         .subtitle {
             font-size: 1.6rem;
-        }       
+        }
+        
+
     }
 
 
