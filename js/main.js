@@ -44,11 +44,7 @@ var app = (function (exports) {
             projectLoader: 5
         },
                 
-        projectTLOpts = {
-            paused: true,
-            onStart: setBodyClass,
-            onStartParams: [currentProjectClass]
-        },
+        projectTLOpts,
         
         masterTLOpts = {
             repeat: -1,
@@ -96,29 +92,15 @@ var app = (function (exports) {
                 backgroundImageFloaterContainer.querySelectorAll(SELECTORS.backgroundImgFloaters),
 
 
-            //projectImageBefore = curry(getPseudoBeforeVal)(projectImageElem),
-            //projectImageAfter = curry(getPseudoAfterVal)(projectImageElem),
-            projectImageBefore = CSSRulePlugin.getRule(SELECTORS.projectImage + ':before'),
-            projectImageAfter = CSSRulePlugin.getRule(SELECTORS.projectImage + ':after'),
+            // GET the CSS rule EXACTLY AS IT's EXPRESSED in our stylesheet
+            projectImageBefore = CSSRulePlugin.getRule('.project .project__image:before'),
+            projectImageAfter = CSSRulePlugin.getRule('.project .project__image:after'),
+                    
             
             projectTL,
             projectLoaderTL,
             projectCTATL;  // project Call-To-Action TL
                 
-                
-//        function blurNonImageElems () {
-//            var tween = TweenMax.set(
-//                [
-//                    projectTitleElem,
-//                    projectSubtitleElem,
-//                    projectButtonContainer,
-//                    backgroundImageFloaters
-//                ],
-//                { autoAlpha: 0 }
-//            );
-//            return tween;
-//        }
-
 
         function slideInProjectImage () {
             var tween = TweenMax.fromTo(
@@ -143,13 +125,13 @@ var app = (function (exports) {
                 0.3,
                 {
                     autoAlpha: 0,
-                    x: '-=10'
-                    //scale: 0
+                    x: '-=10',
+                    scale: 0
                 },
                 {
                     autoAlpha: 1,
                     x: 0,
-                    //scale: 1
+                    scale: 1,
                     ease: EASINGS.viewSliding
                 },
                 0.02
@@ -218,6 +200,24 @@ var app = (function (exports) {
                 backgroundImageFloaterContainer,
                 4.1,
                 { x: '-5', ease: EASINGS.glidingProjectElements }
+            );
+            return tween;
+        }
+        
+        function fadeOutProjectImageAreas () {
+            var tween = TweenMax.to(
+                [projectImageBefore, projectImageAfter],
+                0.4,
+                {cssRule: {opacity: 0}}
+            );
+            return tween;
+        }
+        
+        function fadeInProjectImageAreas () {
+            var tween = TweenMax.to(
+                [projectImageBefore, projectImageAfter],
+                0.4,
+                {cssRule: {opacity: 1}}
             );
             return tween;
         }
@@ -323,7 +323,6 @@ var app = (function (exports) {
 
         function slowlyGlideProjectElementsToCenterStop () {
             projectTL.add(glideProjectTitle(), (TL_LABELS.projectTitleIn + '-=0.1') );
-            debugger;
             projectTL.add(glideProjectSubtitle(), (TL_LABELS.projectTitleIn + '-=0.2'));
             projectTL.addLabel(TL_LABELS.projectTitleGlideOut);
             projectTL.add(glideProjectImage(), TL_LABELS.projectImageIn);
@@ -332,18 +331,16 @@ var app = (function (exports) {
         }
         
         function animateLoader () {
-            //projectLoaderTL.set(projectLoaderSVG, {autoAlpha: 1});
-            projectLoaderTL.to([projectImageAfter, projectImageBefore], 0.4, {cssRule: {opacity: 0}});
+            projectLoaderTL.add(fadeOutProjectImageAreas());
             projectLoaderTL.add(fillLoader());
             projectLoaderTL.add(fadeOutLoader());
-            projectLoaderTL.to([projectImageAfter, projectImageBefore], 0.4, {cssRule: {opacity: 1}}, '-=0.4');
+            projectLoaderTL.add(fadeInProjectImageAreas(), '-=0.4');
         }
 
 
         function slideOutProjectElements () {
             projectTL.add(slideOutContentBelowImage(), TL_LABELS.projectImageGlideOut);
             projectTL.add(slideOutProjectImage(), TL_LABELS.projectImageGlideOut);
-            //projectTL.set(projectImageElem, {autoAlpha: 0});
         }
         
         
@@ -354,7 +351,13 @@ var app = (function (exports) {
             // have our project-specific style rules applied
             currentProjectClass = projectElem.classList.item(1);
             
-            projectTL = new TimelineMax(projectTLOpts),                
+            projectTLOpts = {
+                paused: true,
+                onStart: setBodyClass,
+                onStartParams: [currentProjectClass]
+            };
+            
+            projectTL = new TimelineMax(projectTLOpts);                
             projectCTATL = new TimelineMax();
             projectLoaderTL = new TimelineMax({paused: true});
             
@@ -367,7 +370,8 @@ var app = (function (exports) {
                 animateLoader();    
             }
             
-            slideOutProjectElements();                   
+            slideOutProjectElements(); 
+            
             projectTL.play();
         }
         
@@ -411,7 +415,6 @@ var app = (function (exports) {
      * if the project has a loader, begins playing its timeline
      */
     function pauseMasterTLWithinProjectTL (currentProjectClass, projectLoaderTL) {
-        debugger;
         masterTL.pause();
         
         if (currentProjectClass !== 'project-0') {
@@ -421,7 +424,6 @@ var app = (function (exports) {
     }
     
     function resumeMasterTL () {
-        debugger;
         masterTL.resume();
     }
     
@@ -437,7 +439,6 @@ var app = (function (exports) {
      * When the intro button is clicked, resume the rest of the timeline
      */
     function handleIntroButtonClick (ev) {
-        debugger;
         
         // prevent the link from opening -- just run the timeline function
         if (ev) {

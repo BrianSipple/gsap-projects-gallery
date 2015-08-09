@@ -372,7 +372,11 @@
 .project .project__image img {
   z-index: 4;
   display: block;
-  position: relative; }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 .project .project__image:before,
 .project .project__image:after {
@@ -410,16 +414,29 @@
 .project-3 .project .project__image:after {
   background-color: rgba(74, 161, 85, 0.3); }
 
+.project .project__image-svg-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  /* Rotate the SVG so that animation begins from top */
+  transform: rotate(-90deg); }
+
 .project .project__image-svg-loader {
   position: absolute;
   left: 0;
   top: 0;
-  width: 24.2rem;
-  height: 24.2rem;
   z-index: 5;
-  opacity: 0.7;
-  /* Rotate the SVG so that animation begins from top */
-  transform: rotate(-90deg); }
+  opacity: 0.7; }
+
+.project-1 .project .loader-circle {
+  stroke: #6362a7; }
+
+.project-2 .project .loader-circle {
+  stroke: #fdf696; }
+
+.project-3 .project .loader-circle {
+  stroke: #4aa155; }
 
 .project .background-floaters {
   position: absolute;
@@ -485,113 +502,113 @@
   background-color: rgba(209, 128, 189, 0.7); }
 
 .project .background-floater:nth-child(1) {
-  top: -2.2rem;
-  left: -20.72629rem;
+  top: -17.2rem;
+  left: -21.74812rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(2) {
-  top: -7.2rem;
-  left: 8.68444rem;
+  top: -16.2rem;
+  left: 3.31011rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(3) {
-  top: 0.8rem;
-  left: -12.72785rem;
+  top: -11.2rem;
+  left: -12.11637rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(4) {
-  top: -11.2rem;
-  left: 1.71603rem;
+  top: -6.2rem;
+  left: -19.74897rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(5) {
-  top: 0.8rem;
-  left: 1.43375rem;
+  top: -7.2rem;
+  left: -13.88882rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(6) {
-  top: -9.2rem;
-  left: 11.10165rem;
+  top: -15.2rem;
+  left: -20.33107rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(7) {
-  top: 2.8rem;
-  left: 2.47124rem;
+  top: -12.2rem;
+  left: 2.4846rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(8) {
-  top: 3.8rem;
-  left: 0.19557rem;
+  top: -2.2rem;
+  left: 4.69924rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(9) {
-  top: -4.2rem;
-  left: -23.19856rem;
+  top: -16.2rem;
+  left: -21.56715rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(10) {
-  top: -8.2rem;
-  left: -13.17722rem;
+  top: 0.8rem;
+  left: 9.68127rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(11) {
   top: -7.2rem;
-  left: 2.57503rem;
+  left: -21.78679rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(12) {
-  top: -0.2rem;
-  left: -13.44864rem;
+  top: -23.2rem;
+  left: 2.93733rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(13) {
-  top: -6.2rem;
-  left: -18.55145rem;
+  top: -11.2rem;
+  left: -23.76883rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(14) {
-  top: 0.8rem;
-  left: -20.88536rem;
+  top: -11.2rem;
+  left: -21.08086rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(15) {
-  top: -6.2rem;
-  left: -15.30945rem;
+  top: -23.2rem;
+  left: -13.60644rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(16) {
-  top: -6.2rem;
-  left: -21.58313rem;
+  top: -23.2rem;
+  left: -18.50107rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(17) {
-  top: -22.2rem;
-  left: 0.81277rem;
+  top: -10.2rem;
+  left: 10.29313rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(18) {
-  top: -8.2rem;
-  left: -19.26977rem;
+  top: -12.2rem;
+  left: 5.19364rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(19) {
-  top: -11.2rem;
-  left: 7.34474rem;
+  top: -5.2rem;
+  left: 6.03441rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(20) {
-  top: 6.8rem;
-  left: 8.77221rem;
+  top: -4.2rem;
+  left: -23.0754rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(21) {
-  top: 7.8rem;
-  left: -16.39221rem;
+  top: -4.2rem;
+  left: 4.66239rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .background-floater:nth-child(22) {
-  top: -4.2rem;
-  left: 8.07927rem;
+  top: 4.8rem;
+  left: 0.82773rem;
   /* TODO: Get the result after the last "+" to return 1 or -1 */ }
 
 .project .btn-container {
